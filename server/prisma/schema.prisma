@@ -11,9 +11,61 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Bolão
 model Pool {
   id        String   @id @default(cuid())
   title     String
   code      String   @unique
   createdAt DateTime @default(now())
+  ownerId   String?
+
+  participants Participant[]
+  owner        User?         @relation(fields: [ownerId], references: [id])
+}
+
+model Participant {
+  id     String @id @default(cuid())
+  userId String
+  poolId String
+
+  guesses Guess[]
+  user    User    @relation(fields: [userId], references: [id])
+  pool    Pool    @relation(fields: [poolId], references: [id])
+
+  @@unique([userId, poolId]) // Dizendo que userId e poolId serão unicos nesta tebela
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  avatarUrl String?
+  createdAt DateTime @default(now())
+
+  participatingAt Participant[]
+  ownPools        Pool[]
+}
+
+model Game {
+  id   String   @id @default(cuid())
+  date DateTime
+
+  firstTeamCountryCode  String
+  secondTeamCountryCode String
+
+  guesses Guess[] // Relacionamento inverso (não aparece como uma coluna no banco de dados)
+}
+
+// Palpite
+model Guess {
+  id String @id @default(cuid())
+
+  firstTeamPoints  Int
+  secondTeamPoints Int
+  createdAt        DateTime @default(now())
+  gameId           String
+  participantId    String
+
+  game        Game        @relation(fields: [gameId], references: [id]) // Relacionamento com outra tabela (não aparece como uma coluna no banco de dados)
+  participant Participant @relation(fields: [participantId], references: [id])
 }
