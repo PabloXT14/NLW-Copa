@@ -1,13 +1,14 @@
 import Fastify from 'fastify'
-import { PrismaClient } from '@prisma/client'
-import { z } from 'zod'
-import ShortUniqueId from 'short-unique-id'
 import cors from '@fastify/cors'
+import jwt from '@fastify/jwt'
+
+import { poolRoutes } from './routes/pool'
+import { userRoutes } from './routes/user'
+import { guessRoutes } from './routes/guess'
+import { gameRoutes } from './routes/game'
+import { authRoutes } from './routes/auth'
 
 const PORT = 3333
-const prisma = new PrismaClient({
-  log: ['query'], // dar um log no terminal da execução das nossas consultas no DB
-})
 
 async function bootstrap() {
   const fastify = Fastify({
@@ -15,52 +16,23 @@ async function bootstrap() {
   })
 
   // SETANDO CORS(QUAIS FRONT-ENDS PODEM ACESSAR NOSSO BACK-END)
-  fastify.register(cors, {
-    origin: "*",
-    methods: ["POST"]
+  await fastify.register(cors, {
+    origin: true// neste caso todos podem acessar
   });
 
-  fastify.get('/pools/count', async () => {
-    const count = await prisma.pool.count()
-
-    return { count }
+  // CONFIGURAÇÃO JWT NO FASTIFY
+  await fastify.register(jwt, {
+    secret: 'nlwcopa', // Em produção isso precisa ser uma variável ambiente (e muito mais bem elaborada)
   })
 
-  fastify.get('/users/count', async () => {
-    const count = await prisma.user.count()
+  // IMPORTANDO ROTAS
+  await fastify.register(poolRoutes)
+  await fastify.register(authRoutes)
+  await fastify.register(userRoutes)
+  await fastify.register(guessRoutes)
+  await fastify.register(gameRoutes)
 
-    return { count }
-  })
-
-  fastify.get('/guesses/count', async () => {
-    const count = await prisma.guess.count()
-
-    return { count }
-  })
-
-  fastify.post('/pools', async (request, reply) => {// reply = response do express
-    // SCHEMA DE VALIDAÇÃO COM ZOD
-    const createPoolBody = z.object({
-      title: z.string(),
-    })
-
-    // VALIDANDO SE DADOS NO CORPO DA REQUISIÇÃO ESTÃO CERTOS (SE NÃO O ZOD DEVOLVE UMA RESP. AUTOMATICAMENTE)
-    const { title } = createPoolBody.parse(request.body)
-
-    // GERANDO ID UNICO DE 6 CARACTERES
-    const idGenerate = new ShortUniqueId({ length: 6 })
-    const code = String(idGenerate()).toUpperCase()
-
-    await prisma.pool.create({
-      data: {
-        title,
-        code
-      }
-    })
-
-    return reply.status(201).send({ code })
-  })
-
+  // SETANDO ESCUTA E PORTA DO SERVIDOR
   await fastify.listen({ port: PORT })
 }
 
