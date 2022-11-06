@@ -69,4 +69,6 @@ model Guess {
 
   game        Game        @relation(fields: [gameId], references: [id]) // Relacionamento com outra tabela (não aparece como uma coluna no banco de dados)
   participant Participant @relation(fields: [participantId], references: [id])
+
+  @@unique([participantId, gameId])
 }

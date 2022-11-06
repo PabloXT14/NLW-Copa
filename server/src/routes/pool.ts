@@ -53,7 +53,7 @@ export async function poolRoutes(fastify: FastifyInstance) {
   })
 
   // ROTA PARA INCLUIR NOVO PARTICIPANTE A UM BOLÃO EXISTENTE
-  fastify.post('/pools/:id/join', {
+  fastify.post('/pools/join', {
     onRequest: [authenticate]
   }, async (request, reply) => {
     const joinPoolBody = z.object({
@@ -112,5 +112,86 @@ export async function poolRoutes(fastify: FastifyInstance) {
 
     return reply.status(201).send()
   })
-  
+ 
+  // ROTA QUE RETORNA BOLÕES QUE UM USUÁRIO AUTENTICADO PARTICIPA
+  fastify.get('/pools', {
+    onRequest: [authenticate],
+  }, async (request, reply) => {
+    const pools = await prisma.pool.findMany({
+      where: {
+        participants: {
+          some: {// retorna pools onde pelo menos um dos participantes tenha o id do usuário autenticado
+            userId: request.user.sub,
+          }
+        }
+      },
+      include: {// incluindo no retorno mais alguns dados do pool
+        _count: {// quantidade participantes do pool
+          select: {
+            participants: true,
+          }
+        },
+        owner: {// dono do pool
+          select: {
+            id: true,
+            name: true,
+          }
+        },
+        participants: {// retornando avatar de 4 participantes aleatórios
+          select: {
+            id: true,
+            user: {
+              select: {
+                avatarUrl: true,
+              }
+            }
+          },
+          take: 4,
+        }
+      }
+    })
+
+    return { pools }
+  })
+
+  // ROTA PARA RETORNAR DADOS DE UM BOLÃO ESPECÍFICO INFORMADO
+  fastify.get('/pools/:id', { onRequest: [authenticate] }, async (request, reply) => {
+    const getPoolParams = z.object({
+      id: z.string(),
+    })
+
+    const { id } = getPoolParams.parse(request.params)
+
+    const pool = await prisma.pool.findMany({
+      where: {
+        id,
+      },
+      include: {// incluindo no retorno mais alguns dados do pool
+        _count: {// quantidade participantes do pool
+          select: {
+            participants: true,
+          }
+        },
+        owner: {// dono do pool
+          select: {
+            id: true,
+            name: true,
+          }
+        },
+        participants: {// retornando avatar de 4 participantes aleatórios
+          select: {
+            id: true,
+            user: {
+              select: {
+                avatarUrl: true,
+              }
+            }
+          },
+          take: 4,
+        }
+      }
+    })
+
+    return { pool }
+  })
 }
