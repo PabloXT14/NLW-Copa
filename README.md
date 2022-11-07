@@ -2,7 +2,7 @@
     <img alt="NLW-copa" title="" src=".github/logo-nlw-copa.svg" width="250px" />
 </h1>
 
-<p style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+<p align="center">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pabloxt14/NLW-Copa?color=#F7DD43">
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/pabloxt14/NLW-Copa">
@@ -23,7 +23,7 @@
 </p>
 
 <h4 align="center"> 
-	🚧  NLW Copa ♻️ Concluído 🚀 🚧
+	🚧  NLW Copa Concluído 🚀 🚧
 </h4>
 
 <p align="center">
@@ -34,7 +34,7 @@
  <a href="#-technologies">Technologies</a> | 
  <!-- <a href="#-contribuidores">Contribuidores</a> |  -->
  <a href="#-author">Author</a> | 
- <a href="#user-content--licença">License</a>
+ <a href="#-license">License</a>
 </p>
 
 
