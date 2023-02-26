@@ -234,8 +234,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 🦸 Author
 
-<a href="https://blog.rocketseat.com.br/author/thiago/">
- <img alt="PabloXT14" title="PabloXT14" src="https://avatars.githubusercontent.com/u/71723595?s=400&u=f7a1ec0c2e1f7cd1acf79f61043dbc75b1079de6&v=4" width="100px;" />
+<a href="https://github.com/PabloXT14">
+ <img alt="PabloXT14" title="PabloXT14" src="https://github.com/PabloXT14.png" width="100px;" />
  <br />
  <sub><strong>Pablo Alan</strong> 🚀</sub>
 </a>
