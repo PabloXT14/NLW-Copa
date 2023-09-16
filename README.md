@@ -23,7 +23,7 @@
 </p>
 
 <h4 align="center"> 
-	🚧  NLW Copa Concluído 🚀 🚧
+🚀 NLW Copa Concluído 🚀
 </h4>
 
 <p align="center">
