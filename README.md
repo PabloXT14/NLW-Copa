@@ -1,9 +1,15 @@
 <h1 align="center">
-    <img alt="NLW-copa" title="" src=".github/logo-nlw-copa.svg" width="250px" />
+  <img
+    src=".github/logo-nlw-copa.svg"
+    alt="Logo NLW Copa"
+    title="Logo NLW Copa"
+    width="250px"
+  />
+  Book Wise
 </h1>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pabloxt14/NLW-Copa?color=#F7DD43">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pabloxt14/NLW-Copa">
 
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/pabloxt14/NLW-Copa">
   
@@ -11,7 +17,7 @@
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/pabloxt14/NLW-Copa">
   </a>
     
-   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
 
    <a href="https://github.com/pabloxt14/NLW-Copa/stargazers">
     <img alt="Stargazers" src="https://img.shields.io/github/stars/pabloxt14/NLW-Copa?style=social">
@@ -19,7 +25,7 @@
 </p>
 
 <p>
-  <img src=".github/cover.png" alt="nlw-copa" />
+  <img src=".github/cover.png" alt="nlw-copa-cover" />
 </p>
 
 <h4 align="center"> 
@@ -48,16 +54,18 @@ O projeto foi desenvolvido durante a **NLW - Next Level Week** oferecida pela [R
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/community/file/1169028343875283461). É necessário ter conta no [Figma](https://www.figma.com/) para acessá-lo.
 
+Veja uma demonstração visual das principais telas da aplicação:
+
 ### Web
 
 <p align="center">
-  <img alt="Layout Web Demonstration" title="#Web" src=".github/images/web-demonstration.png" width="100%">
+  <img src=".github/images/web-demonstration.png" alt="Layout Web Demonstration" title="#Web" width="100%">
 </p>
 
 ### Mobile
 
 <p align="center">
-  <img alt="Layout Mobile Demonstration" title="#Mobile" src=".github/images/mobile-demonstration.png" width="100%">
+  <img src=".github/images/mobile-demonstration.png" alt="Layout Mobile Demonstration" title="#Mobile" width="100%">
 </p>
 
 ---
@@ -65,7 +73,7 @@ Você pode visualizar o layout do projeto através [desse link](https://www.figm
 ## 🚀 How it works
 
 Este projeto é divido em três partes:
-1. Backend (pasta server) 
+1. Backend (pasta server)
 2. Frontend (pasta web)
 3. Mobile (pasta mobile)
 
@@ -81,7 +89,7 @@ Antes de baixar o projeto você vai precisar ter instalado na sua máquina as se
 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-#### 🎲 Rodando o Backend (servidor)
+### 🎲 Rodando o Backend (servidor)
 
 ```bash
 # Clone este repositório
@@ -102,7 +110,7 @@ $ npm run dev
 # O servidor inciará na porta:3333 - acesse http://localhost:3333 
 ```
 
-#### 🧭 Rodando a aplicação web (Frontend)
+### 🧭 Rodando a aplicação web (Frontend)
 
 ```bash
 # Vá para a pasta da aplicação Front End
@@ -117,7 +125,7 @@ $ npm run dev
 # A aplicação será aberta na porta:3000 - acesse http://localhost:3000
 ```
 
-#### 📱 Rodando a aplicação mobile (Mobile)
+### 📱 Rodando a aplicação mobile (Mobile)
 
 ```bash
 # Vá para a pasta da aplicação mobile
@@ -136,15 +144,15 @@ $ npx expo start
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **Website**  ([Next](https://nextjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
+#### **Website** ([Next](https://nextjs.org/)  +  [TypeScript](https://www.typescriptlang.org/))
 
 -   **[TailwindCSS](https://tailwindcss.com/)**
 -   **[PostCSS](https://postcss.org/)**
 -   **[Axios](https://github.com/axios/axios)**
 
-> Veja o arquivo  [package.json](https://github.com/pabloxt14/NLW-Copa/web/package.json)
+> Para mais detalhes das dependências da parte `web` da aplicação veja o arquivo [package.json](./web/package.json)
 
-#### **Server**  ([NodeJS](https://nodejs.org/en/)  +  [TypeScript](https://www.typescriptlang.org/))
+#### **Server** ([NodeJS](https://nodejs.org/en/)  +  [TypeScript](https://www.typescriptlang.org/))
 
 -   **[Fastify](https://www.fastify.io/)**
 -   **[Zod](https://github.com/colinhacks/zod)**
@@ -152,9 +160,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[Prisma](https://www.prisma.io/)**
 -   **[SQLite](https://github.com/mapbox/node-sqlite3)**
 
-> Veja o arquivo  [package.json](https://github.com/pabloxt14/NLW-Copa/server/package.json)
+> Para mais detalhes das dependências da parte de `server` da aplicação veja o arquivo  [package.json](./server/package.json)
 
-#### **Mobile**  ([React Native](http://www.reactnative.com/)  +  [TypeScript](https://www.typescriptlang.org/))
+#### **Mobile** ([React Native](http://www.reactnative.com/) + [TypeScript](https://www.typescriptlang.org/))
  
 -   **[Expo](https://expo.io/)**
 -   **[Expo Fonts](https://docs.expo.dev/guides/using-custom-fonts/)**
@@ -171,7 +179,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[DayJS](https://day.js.org/)**
 -   **[dotENV](https://www.npmjs.com/package/dotenv)**
 
-> Veja o arquivo  [package.json](https://github.com/pabloxt14/NLW-Copa/mobile/package.json)
+> Para mais detalhes das dependências da parte `mobile` da aplicação veja o arquivo  [package.json](./mobile/package.json)
 
 ---
 
