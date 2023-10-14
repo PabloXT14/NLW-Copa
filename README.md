@@ -150,7 +150,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[PostCSS](https://postcss.org/)**
 -   **[Axios](https://github.com/axios/axios)**
 
-> Para mais detalhes das dependências da parte `web` da aplicação veja o arquivo [package.json](./web/package.json)
+> Para mais detalhes das dependências da parte `web` da aplicação veja o arquivo [package.json](web/package.json)
 
 #### **Server** ([NodeJS](https://nodejs.org/en/)  +  [TypeScript](https://www.typescriptlang.org/))
 
@@ -160,7 +160,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[Prisma](https://www.prisma.io/)**
 -   **[SQLite](https://github.com/mapbox/node-sqlite3)**
 
-> Para mais detalhes das dependências da parte de `server` da aplicação veja o arquivo  [package.json](./server/package.json)
+> Para mais detalhes das dependências da parte de `server` da aplicação veja o arquivo  [package.json](server/package.json)
 
 #### **Mobile** ([React Native](http://www.reactnative.com/) + [TypeScript](https://www.typescriptlang.org/))
  
@@ -179,7 +179,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[DayJS](https://day.js.org/)**
 -   **[dotENV](https://www.npmjs.com/package/dotenv)**
 
-> Para mais detalhes das dependências da parte `mobile` da aplicação veja o arquivo  [package.json](./mobile/package.json)
+> Para mais detalhes das dependências da parte `mobile` da aplicação veja o arquivo  [package.json](mobile/package.json)
 
 ---
 
